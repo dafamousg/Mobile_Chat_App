@@ -6,15 +6,16 @@ import firebaseSvc from '../FirebaseSvc';
 
 export default class ChatScreen extends React.Component {
 
+
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Chat',
+    });
     
     state = {
         messages: [],
     };
     
     componentWillMount(){
-        navigationOptions = ({ navigation }) => ({
-            title: firebaseSvc.getName(),
-        });
         
     }
 
