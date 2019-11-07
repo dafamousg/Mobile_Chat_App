@@ -6,21 +6,26 @@ import firebaseSvc from '../FirebaseSvc';
 
 export default class ChatScreen extends React.Component {
 
-    static navigationOptions = ({ navigation }) => ({
-        title: firebaseSvc.getName(),
-    });
-
+    
     state = {
         messages: [],
     };
     
     componentWillMount(){
+        navigationOptions = ({ navigation }) => ({
+            title: firebaseSvc.getName(),
+        });
         
+    }
+
+    onLogoutPress = () => {
+        firebaseSvc.logout();
     }
 
     render(){
         return(
             <View style={{flex: 1}}>
+                <Button title="Logout" onPress={this.onLogoutPress}/>
                 <GiftedChat
                     messages={this.state.messages}
                     onSend={(message) => {

@@ -88,6 +88,10 @@ class FirebaseSvc {
         }
     }
 
+    logout(){
+        firebase.auth().signOut();
+    }
+
 
     login = async(user, success_callback, failed_callback) => {
         await firebase.auth()
